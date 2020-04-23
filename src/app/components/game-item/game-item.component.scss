@@ -1,0 +1,60 @@
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  img {
+    height: 300px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .mat-card-title {
+    font-size: 26px;
+  }
+  
+  .mat-card-subtitle {
+    margin-bottom: 10px;
+  }
+  
+  .mat-card-header {
+    margin: 0;
+    padding: 0;
+    
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  
+  .mat-card-content {
+    margin-bottom: 5px;
+    
+    .mat-chip-list {
+      display: block;
+      
+      .title-list {
+        margin-right: 5px;
+      }
+      
+      .mat-chip {
+        font-size: 13px;
+        margin: 0 2px 2px 0;
+      }
+    }
+  }
+  
+  .mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    
+    button {
+      flex: 0.1;
+      margin-top: auto;
+    }
+  }
+}

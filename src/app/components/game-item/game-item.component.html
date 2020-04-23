@@ -1,0 +1,52 @@
+<mat-card>
+  
+  <img *ngIf="game.image_url!==null;else altImage"  mat-card-image src="{{ game.image_url }}" alt="">
+  <ng-template #altImage>
+    <img src="https://wakarusaag.com/wp-content/plugins/oem-showcase-inventory/assets/images/noimage-found.png" alt="Image not found">
+  </ng-template>
+  
+  <div> <!-- card header -->
+    
+    <mat-card-title>{{ game.title }}</mat-card-title>
+    <mat-card-subtitle>{{ game.released }}</mat-card-subtitle>
+    
+  </div>
+  
+  
+  <hr class="mb-3 mt-0">
+  
+  
+  <mat-card-content>
+    
+    <mat-chip-list aria-label="genres list">
+      
+      <span class="text-lg font-bold title-list">Genres:</span>
+      <mat-chip *ngFor="let genre of game.genres" color="primary" selected>
+        {{ genre }}
+      </mat-chip>
+      
+    </mat-chip-list>
+    
+    <div class="my-2"></div>
+    
+    <mat-chip-list aria-label="platforms list">
+      
+      <span class="text-lg font-bold title-list">Platforms:</span>
+      <mat-chip *ngFor="let platform of game.platforms" color="warn" selected>
+        {{ platform }}
+      </mat-chip>
+      
+    </mat-chip-list>
+    
+  </mat-card-content>
+  
+  
+  <mat-card-actions>
+    
+    <button mat-raised-button [disabled]="game.video_url ? false : true" (click)="openDialog()">
+      <mat-icon>{{ game.video_url ? 'visibility' : 'visibility_off' }}</mat-icon>
+    </button>
+    
+  </mat-card-actions>
+  
+</mat-card>

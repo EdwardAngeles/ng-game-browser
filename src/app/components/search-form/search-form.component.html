@@ -1,0 +1,75 @@
+<form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)" class="grid lg:grid-cols-12 col-gap-8 row-gap-3 max-w-screen-md mx-1 lg:mx-auto">
+
+  <!-- first row -->
+  <div class="lg:col-span-8 col-search">
+    
+    <mat-form-field appearance="outline" id="fild-search" class="w-full">
+      <mat-label>Game Title</mat-label>
+      <input [ngModel] #inputTitle="ngModel" name="title" matInput placeholder="Resident Evil 3">
+      <button mat-button type="button" *ngIf="inputTitle.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchForm.updateModel(inputTitle, '')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    
+  </div>
+  
+  <div class="lg:col-span-4">
+    
+    <button type="submit" mat-raised-button color="primary" class="w-full h-full">
+      <span class="text-base">Search</span>
+    </button>
+    
+  </div>
+  
+  
+  <!-- second row -->
+  
+  <div class="lg:col-span-4">
+    
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Genre</mat-label>
+      <mat-select [ngModel]="-1" name="genre" [value]="2">
+        
+        <mat-option [value]="-1">All</mat-option>
+        <mat-option *ngFor="let genre of genres" [value]="genre.id">
+          {{ genre.name }}
+        </mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+  
+  <div class="lg:col-span-4">
+    
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Released Year</mat-label>
+      <mat-select [ngModel]="-1" name="year" [value]="2018">
+        
+        <mat-option [value]="-1">Any</mat-option>
+        <mat-option *ngFor="let year of years" [value]="year">
+          {{ year }}
+        </mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+  
+  <div class="lg:col-span-4">
+    
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Platform</mat-label>
+      <mat-select [ngModel]="-1" name="platform">
+        
+        <mat-option [value]="-1">Any</mat-option>
+        <mat-option *ngFor="let platform of platforms" [value]="platform.id">
+          {{ platform.name }}
+        </mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+  
+</form>
